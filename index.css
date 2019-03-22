@@ -16,6 +16,16 @@ body {
   color: bisque;
 }
 
+.math {
+  font-weight: bold;
+  color: firebrick;
+}
+
+.block {
+  font-weight: bold;
+  color: rgb(173, 178, 34);
+}
+
 .other {
   color: rgb(231, 212, 212);
 }
@@ -27,12 +37,12 @@ body {
 .output {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
   padding: 1em;
-  background-color: rgb(1, 43, 24);
+  background-color: rgb(31, 31, 31);
   width: 70%;
   margin: 0 auto;
   font-family: monospace;
-  height: 50vh;
-  overflow: scroll;
+  height: 150vh;
+  overflow-y: scroll;
 }
 form {
   display: flex;

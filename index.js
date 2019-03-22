@@ -5,8 +5,6 @@ btn.addEventListener('click', showOutput);
 
 const VVC = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-', '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-const LEGAL_SYMBOL = ['.', ',', '+', '-', '/', '*', '%', '&', '|', '!', '^'];
-
 let dblQuotesFlag = false;
 let sngQuotesFlag = false;
 let markers = [];
@@ -46,25 +44,37 @@ function buildMarkers(str) {
         markers.push(marker);
       } else if (str[i] == "{") {
         tmp += str[i];
-        let marker = new Marker(start, "OBR", 1, tmp);
+        let marker = new Marker(start, "BLK", 1, tmp);
         markers.push(marker);
       } else if (str[i] == "}") {
         tmp += str[i];
-        let marker = new Marker(start, "CBR", 1, tmp);
+        let marker = new Marker(start, "BLK", 1, tmp);
         markers.push(marker);
       } else if (str[i] == "(") {
         tmp += str[i];
-        let marker = new Marker(start, "OPR", 1, tmp);
+        let marker = new Marker(start, "BLK", 1, tmp);
         markers.push(marker);
       } else if (str[i] == ")") {
         tmp += str[i];
-        let marker = new Marker(start, "CPR", 1, tmp);
+        let marker = new Marker(start, "BLK", 1, tmp);
         markers.push(marker);
       } else if (str[i] == "<") {
-        let marker = new Marker(start, "LST", 1, "&lt;");
+        let marker = new Marker(start, "MTH", 1, "&lt;");
         markers.push(marker);
       } else if (str[i] == ">") {
-        let marker = new Marker(start, "GRT", 1, "&gt;");
+        let marker = new Marker(start, "MTH", 1, "&gt;");
+        markers.push(marker);
+      } else if (str[i] == "=") {
+        let marker = new Marker(start, "MTH", 1, "=");
+        markers.push(marker);
+      } else if (str[i] == "!") {
+        let marker = new Marker(start, "MTH", 1, "!");
+        markers.push(marker);
+      } else if (str[i] == "*") {
+        let marker = new Marker(start, "MTH", 1, "!");
+        markers.push(marker);
+      } else if (str[i] == "/") {
+        let marker = new Marker(start, "MTH", 1, "!");
         markers.push(marker);
       } else {
         let marker = new Marker(start, str[i], str[i].length, str[i]);
@@ -81,9 +91,6 @@ function getInput(id) {
   let inputData = document.querySelector(`#${id}`).value;
   return inputData;
 }
-/*
-So if we're already in quotes, ignore any new quotes
-*/
 function processMarkers(markers) {
   let tmp = "";
   let inSingleQuotes = false;
@@ -111,6 +118,10 @@ function processMarkers(markers) {
       tmp += `<span class='keyword'>${element.word}</span>`;
     } else if (element.word == '`') {
       tmp += `&#96;`;
+    } else if (element.type == 'MTH') {
+      tmp += `<span class = 'math'>${element.word}</span>`;    
+    } else if (element.type == 'BLK') {
+      tmp += `<span class = 'block'>${element.word}</span>`;    
     } else {
       if(element.word == "'" || element.word == "`") tmp += "&#34;"; else tmp += `${element.word}`;
     }
@@ -132,35 +143,27 @@ function isKeyword(str) {
     case 'a':
       if (keyWordsA.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'b':
       if (keyWordsB.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'c':
       if (keyWordsC.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'd':
       if (keyWordsD.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'e':
       if (keyWordsE.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'f':
       if (keyWordsF.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'g':
       if (keyWordsG.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'i':
       if (keyWordsI.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'l':
       if (keyWordsL.indexOf(str) != -1) return true;
       return false;
