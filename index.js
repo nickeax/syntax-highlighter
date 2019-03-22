@@ -1,13 +1,26 @@
 const output = document.querySelector('#output');
 
-const btn = document.querySelector('#addCode');
-btn.addEventListener('click', showOutput);
+const btnSaveCode = document.querySelector('#saveCode');
+btnSaveCode.addEventListener('click', ()=>{
+  alert('not yet implmented');
+})
+
+const btnClearCode = document.querySelector('#clearCode');
+
+const input = document.querySelector('#input');
+input.addEventListener('keyup', showOutput);
+
+btnClearCode.addEventListener('click', ev => {
+  input.value = "";
+  showOutput();
+})
 
 const VVC = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '-', '_', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let dblQuotesFlag = false;
 let sngQuotesFlag = false;
 let markers = [];
+let ip = "";
 
 function buildMarkers(str) {
   let start = 0;
@@ -71,7 +84,7 @@ function buildMarkers(str) {
         let marker = new Marker(start, "MTH", 1, "!");
         markers.push(marker);
       } else if (str[i] == "*") {
-        let marker = new Marker(start, "MTH", 1, "!");
+        let marker = new Marker(start, "MTH", 1, "*");
         markers.push(marker);
       } else if (str[i] == "/") {
         let marker = new Marker(start, "MTH", 1, "!");
@@ -85,12 +98,6 @@ function buildMarkers(str) {
   }
 }
 
-function getInput(id) {
-  console.log("CLICK!");
-
-  let inputData = document.querySelector(`#${id}`).value;
-  return inputData;
-}
 function processMarkers(markers) {
   let tmp = "";
   let inSingleQuotes = false;
@@ -129,10 +136,14 @@ function processMarkers(markers) {
   return tmp;
 }
 
+function getInput(id) {
+  let inputData = document.querySelector(`#${id}`).value;
+  return inputData;
+}
+
 function showOutput(ev) {
   markers = [];
   let op = "";
-  output.innerHTML = "";
   buildMarkers(getInput('input'));
   op = processMarkers(markers);
   output.innerHTML = op;

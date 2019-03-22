@@ -26,8 +26,19 @@ body {
   color: rgb(231, 212, 212);
 }
 
-.input {
-  float: left;
+#saveCode {
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(33, 214, 111);
+  position: fixed;
+}
+
+#clearCode {
+  padding: 1rem;
+  border-style: none;
+  background-color: rgb(214, 33, 33);
+  position: fixed;
+  left: 5rem;
 }
 
 .output {
@@ -37,21 +48,28 @@ body {
   width: 50%;
   margin: 0 auto;
   font-family: "Courier New",monospace;
+  font-size: 1.5em;
   height: 100%;
   overflow-x: scroll;
   line-height: 1.4;
+  z-index: 666;
 }
 form {
   display: flex;
-  
   padding: 1em;
   background-color: #eee;
   width: 100%;
-  margin: 0 auto;
+  margin: 2rem auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  z-index: -666;
 }
 
 textarea {
-  width: 70%;
+  font-size: 1.5rem;
+  color: #55ff55;
+  background-color: #222;
+  width: 60%;
+  height: 40vh;
   margin: 0 auto;
 }
 /*# sourceMappingURL=index.css.map */
