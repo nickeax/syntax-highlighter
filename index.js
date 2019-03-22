@@ -130,6 +130,7 @@ function processMarkers(markers) {
 }
 
 function showOutput(ev) {
+  markers = [];
   let op = "";
   output.innerHTML = "";
   buildMarkers(getInput('input'));
@@ -167,46 +168,40 @@ function isKeyword(str) {
     case 'l':
       if (keyWordsL.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'n':
       if (keyWordsN.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'p':
       if (keyWordsP.indexOf(str) != -1) return true;
       return false;
-      break;
+    case 'q':
+      if (keyWordsQ.indexOf(str) != -1) return true;
+      return false;
     case 'r':
       if (keyWordsR.indexOf(str) != -1) return true;
       return false;
-      break;
     case 's':
       if (keyWordsS.indexOf(str) != -1) return true;
       return false;
-      break;
     case 't':
       if (keyWordsT.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'v':
       if (keyWordsV.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'w':
       if (keyWordsW.indexOf(str) != -1) return true;
       return false;
-      break;
     case 'y':
       if (keyWordsY.indexOf(str) != -1) return true;
       return false;
-      break;
   }
 }
 
 const keyWordsA = ['abstract', 'arguments', 'await'];
 const keyWordsB = ['boolean', 'break', 'byte'];
 const keyWordsC = ['case', 'catch', 'char', 'class', 'const', 'continue'];
-const keyWordsD = ['debugger', 'default', 'delete', 'do', 'double'];
+const keyWordsD = ['debugger', 'default', 'delete', 'do', 'double', 'document'];
 const keyWordsE = ['else', 'enum', 'evalexport', 'extends'];
 const keyWordsF = ['false', 'final', 'finally', 'float', 'for', 'function'];
 const keyWordsG = ['goto'];
@@ -214,6 +209,7 @@ const keyWordsI = ['if', 'implements', 'import', 'in', 'instanceof', 'int', 'int
 const keyWordsL = ['let', 'long'];
 const keyWordsN = ['native', 'new', 'null'];
 const keyWordsP = ['package', 'private', 'protected', 'public'];
+const keyWordsQ = ['querySelector'];
 const keyWordsR = ['return'];
 const keyWordsS = ['short', 'static', 'super', 'switch', 'synchronized'];
 const keyWordsT = ['this', 'throw', 'throws', 'transient', 'true', 'try', 'typeof'];

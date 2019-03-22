@@ -1,19 +1,15 @@
 body {
-  background-color: rgb(158, 217, 193);
-  color: rgb(23, 183, 119);
+  background-color: rgb(214, 214, 214);
+  color: rgb(209, 227, 220);
   font-size: 16px;
 }
 .keyword {
-  font-weight: bold;
-  color: orange;
+  font-style: ;
+  color: rgb(185, 108, 8);
 }
 
 .inQuotes {
-  color: rgb(159, 73, 2)
-}
-
-.variableName {
-  color: bisque;
+  color: rgb(2, 159, 70)
 }
 
 .math {
@@ -22,8 +18,8 @@ body {
 }
 
 .block {
-  font-weight: bold;
-  color: rgb(173, 178, 34);
+  font-weight: 100;
+  color: rgb(226, 226, 166);
 }
 
 .other {
@@ -37,12 +33,13 @@ body {
 .output {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
   padding: 1em;
-  background-color: rgb(31, 31, 31);
-  width: 70%;
+  background-color: rgb(12, 12, 12);
+  width: 50%;
   margin: 0 auto;
-  font-family: monospace;
-  height: 150vh;
-  overflow-y: scroll;
+  font-family: "Courier New",monospace;
+  height: 100%;
+  overflow-x: scroll;
+  line-height: 1.4;
 }
 form {
   display: flex;
