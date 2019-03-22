@@ -81,22 +81,24 @@ function getInput(id) {
   let inputData = document.querySelector(`#${id}`).value;
   return inputData;
 }
-
+/*
+So if we're already in quotes, ignore any new quotes
+*/
 function processMarkers(markers) {
   let tmp = "";
   let inSingleQuotes = false;
   let inDoubleQuotes = false;
   markers.forEach(element => {
-    if (element.type == "SQT") {
+    if (element.type == "SQT" && !inDoubleQuotes) {
       inSingleQuotes = !inSingleQuotes;
-      if (inSingleQuotes && !inDoubleQuotes) {
+      if (inSingleQuotes) {
         tmp += "<span class = 'inQuotes'>&#39;";
       } else {
         tmp += "&#39;</span>";
       }
-    } else if (element.type == "DQT") {
+    } else if (element.type == "DQT" && !inSingleQuotes) {
       inDoubleQuotes = !inDoubleQuotes;
-      if (inDoubleQuotes && !inSingleQuotes) {
+      if (inDoubleQuotes) {
         tmp += "<span class='inQuotes'>&quot;";
       } else {
         tmp += "&quot;</span>";
