@@ -90,13 +90,15 @@ function processMarkers(markers) {
     if (element.type == "SQT") {
       inSingleQuotes = !inSingleQuotes;
       if (inSingleQuotes && !inDoubleQuotes) {
+        inSingleQuotes = !inSingleQuotes;
         tmp += "<span class = 'inQuotes'>&#39;";
       } else {
         tmp += "&#39;</span>";
       }
     } else if (element.type == "DQT") {
-      inDoubleQuotes = !inDoubleQuotes;
+      inDoubleQuotes = ! inDoubleQuotes;
       if (inDoubleQuotes && !inSingleQuotes) {
+        inDoubleQuotes = !inDoubleQuotes;
         tmp += "<span class='inQuotes'>&quot;";
       } else {
         tmp += "&quot;</span>";
