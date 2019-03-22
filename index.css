@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(158, 217, 193);
+  color: rgb(23, 183, 119);
+  font-size: 16px;
+}
+.keyword {
+  font-weight: bold;
+  color: orange;
+}
+
+.inQuotes {
+  color: rgb(159, 73, 2)
+}
+
+.variableName {
+  color: bisque;
+}
+
+.other {
+  color: rgb(231, 212, 212);
+}
+
+.input {
+  float: left;
+}
+
+.output {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  padding: 1em;
+  background-color: rgb(1, 43, 24);
+  width: 70%;
+  margin: 0 auto;
+  font-family: monospace;
+  height: 50vh;
+  overflow: scroll;
+}
+form {
+  display: flex;
+  
+  padding: 1em;
+  background-color: #eee;
+  width: 100%;
+  margin: 0 auto;
+}
+
+textarea {
+  width: 70%;
+  margin: 0 auto;
+}
+/*# sourceMappingURL=index.css.map */
