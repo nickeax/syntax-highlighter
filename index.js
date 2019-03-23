@@ -1,4 +1,5 @@
 const output = document.querySelector('#output');
+const bgOutput = document.querySelector('#bgOutput');
 
 const btnSaveCode = document.querySelector('#saveCode');
 btnSaveCode.addEventListener('click', ()=>{
@@ -106,14 +107,14 @@ function processMarkers(markers) {
     if (element.type == "SQT" && !inDoubleQuotes) {
       inSingleQuotes = !inSingleQuotes;
       if (inSingleQuotes) {
-        tmp += "<span class = 'inQuotes'>&#39;";
+        tmp += "<span class = 'inSingleQuotes'>&#39;";
       } else {
         tmp += "&#39;</span>";
       }
     } else if (element.type == "DQT" && !inSingleQuotes) {
       inDoubleQuotes = !inDoubleQuotes;
       if (inDoubleQuotes) {
-        tmp += "<span class='inQuotes'>&quot;";
+        tmp += "<span class='inDoubleQuotes'>&quot;";
       } else {
         tmp += "&quot;</span>";
       }
@@ -147,6 +148,7 @@ function showOutput(ev) {
   buildMarkers(getInput('input'));
   op = processMarkers(markers);
   output.innerHTML = op;
+  bgOutput.innerHTML = op;
 }
 
 function isKeyword(str) {
@@ -217,7 +219,7 @@ const keyWordsE = ['else', 'enum', 'evalexport', 'extends'];
 const keyWordsF = ['false', 'final', 'finally', 'float', 'for', 'function'];
 const keyWordsG = ['goto'];
 const keyWordsI = ['if', 'implements', 'import', 'in', 'instanceof', 'int', 'interface'];
-const keyWordsL = ['let', 'long'];
+const keyWordsL = ['let', 'long', 'length'];
 const keyWordsN = ['native', 'new', 'null'];
 const keyWordsP = ['package', 'private', 'protected', 'public'];
 const keyWordsQ = ['querySelector'];

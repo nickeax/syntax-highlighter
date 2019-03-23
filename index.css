@@ -1,15 +1,26 @@
 body {
-  background-color: rgb(214, 214, 214);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(214, 214, 214, 0);
   color: rgb(209, 227, 220);
   font-size: 16px;
 }
+
 .keyword {
   font-style: ;
   color: rgb(185, 108, 8);
 }
 
-.inQuotes {
-  color: rgb(2, 159, 70)
+.inSingleQuotes {
+  font-style: italic;
+  color: rgb(43, 199, 111)
+}
+
+.inDoubleQuotes {
+  font-weight: bold;
+  font-style: italic;
+  color: rgb(27, 122, 68)
 }
 
 .math {
@@ -31,6 +42,7 @@ body {
   border-style: none;
   background-color: rgb(33, 214, 111);
   position: fixed;
+  left: 10rem;
 }
 
 #clearCode {
@@ -41,27 +53,63 @@ body {
   left: 5rem;
 }
 
+#clearCode,
+#saveCode {
+  border-radius: 3px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+#clearCode:hover,
+#saveCode:hover {
+  background-color: #fff;
+}
+
+.container {
+  display: absolute;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 5rem;
+  z-index: 666;
+}
+
 .output {
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  opacity: 0.9;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
   padding: 1em;
   background-color: rgb(12, 12, 12);
   width: 50%;
   margin: 0 auto;
-  font-family: "Courier New",monospace;
+  font-family: "Courier New", monospace;
   font-size: 1.5em;
   height: 100%;
   overflow-x: scroll;
   line-height: 1.4;
   z-index: 666;
 }
+
+#bgOutput {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: 0.3;
+  position: fixed;
+  top: 300px;
+  left: 10rem;
+  transform: skewX(30deg);
+  transform: skewY(30deg);
+  font-size: 4.5rem;
+  z-index: -666;
+  width: 200vw;
+  height: 200vh;
+}
+
 form {
+  opacity: .8;
   display: flex;
+  border-radius: 15px;
   padding: 1em;
   background-color: #eee;
   width: 100%;
   margin: 2rem auto;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-  z-index: -666;
 }
 
 textarea {
@@ -72,4 +120,82 @@ textarea {
   height: 40vh;
   margin: 0 auto;
 }
-/*# sourceMappingURL=index.css.map */
+
+#github {
+  padding: 3rem;
+  position: relative;
+  top: 20px;
+  width: 100vw;
+  background-color: #fff;
+}
+
+#github img {
+  height: 60px;
+}
+
+@media screen and (max-width: 950px) {
+  .output {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+    padding: 1em;
+    background-color: rgb(12, 12, 12);
+    width: 90%;
+    font-size: 1em;
+    height: 100%;
+    overflow-x: scroll;
+    line-height: 1.4;
+  }
+
+  form {
+    display: flex;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: #eee;
+    width: 100%;
+    margin: 5px auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  textarea {
+    font-size: 1.5rem;
+    color: #55ff55;
+    background-color: #222;
+    width: 95%;
+    height: 80vh;
+    margin: 0 auto;
+  }
+
+  #github {
+    position: relative;
+    top: 20px;
+    width: 100vw;
+    background-color: #fff;
+  }
+
+  #github img {
+    height: 60px;
+  }
+
+  .buttonBar {
+    display: flex;
+    grid-template: auto / 1fr 1fr;
+    width: 100%;
+  }
+
+  #saveCode {
+    display: flex-item;
+    grid-column: 1 / 1 span 1;
+    padding: 1rem;
+    background-color: rgb(33, 214, 111);
+    right: 3px;
+    top: 3px;
+  }
+
+  #clearCode {
+    grid-column: 2 span 1;
+    padding: 1rem;
+    border-style: none;
+    background-color: rgb(214, 33, 33);
+    right: 3px;
+    top: 3px;
+  }
+}
