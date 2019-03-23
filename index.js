@@ -88,7 +88,7 @@ function buildMarkers(str) {
         let marker = new Marker(start, "MTH", 1, "*");
         markers.push(marker);
       } else if (str[i] == "/") {
-        let marker = new Marker(start, "MTH", 1, "!");
+        let marker = new Marker(start, "MTH", 1, "/");
         markers.push(marker);
       } else {
         let marker = new Marker(start, str[i], str[i].length, str[i]);
@@ -213,13 +213,13 @@ function isKeyword(str) {
 
 const keyWordsA = ['abstract', 'arguments', 'await'];
 const keyWordsB = ['boolean', 'break', 'byte'];
-const keyWordsC = ['case', 'catch', 'char', 'class', 'const', 'continue'];
+const keyWordsC = ['case', 'catch', 'char', 'class', 'const', 'continue', 'console'];
 const keyWordsD = ['debugger', 'default', 'delete', 'do', 'double', 'document'];
 const keyWordsE = ['else', 'enum', 'evalexport', 'extends'];
 const keyWordsF = ['false', 'final', 'finally', 'float', 'for', 'function'];
 const keyWordsG = ['goto'];
 const keyWordsI = ['if', 'implements', 'import', 'in', 'instanceof', 'int', 'interface'];
-const keyWordsL = ['let', 'long', 'length'];
+const keyWordsL = ['let', 'long', 'length', 'log'];
 const keyWordsN = ['native', 'new', 'null'];
 const keyWordsP = ['package', 'private', 'protected', 'public'];
 const keyWordsQ = ['querySelector'];
